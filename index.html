@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Magia de la Empatía - Carlos Cisneros</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .flyer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 40px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .section-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #4facfe;
+            border-bottom: 3px solid #4facfe;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .definition {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .definition-image {
+            flex: 0 0 200px;
+            height: 200px;
+            object-fit: contain;
+        }
+
+        .definition-text {
+            flex: 1;
+        }
+
+        .definition p {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight {
+            color: #4facfe;
+            font-weight: 700;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-card::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .benefit-image {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin: 0 auto 15px;
+        }
+
+        .benefit-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #4facfe;
+        }
+
+        .tips-container {
+            margin-top: 30px;
+        }
+
+        .tip {
+            display: flex;
+            margin-bottom: 25px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            align-items: center;
+        }
+
+        .tip:hover {
+            transform: translateX(10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tip-image {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .tip-content {
+            flex-grow: 1;
+        }
+
+        .tip-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #4facfe;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .example-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .example-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-image {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            padding: 15px;
+        }
+
+        .example-content {
+            padding: 20px;
+        }
+
+        .example-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #4facfe;
+        }
+
+        .quotes-section {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 50px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .quotes-image {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .quote {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-author {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #3f87a6 0%, #4facfe 100%);
+            padding: 40px;
+            text-align: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-image {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .call-to-action {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-text {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .author-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .author-link:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .bounce-animation {
+            animation: bounce 2s infinite;
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(5deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 3rem;
+            }
+
+            .subtitle {
+                font-size: 1.5rem;
+            }
+
+            .benefits-grid, .examples-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .definition {
+                flex-direction: column;
+            }
+
+            .quotes-section {
+                padding: 30px;
+            }
+
+            .quote {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flyer-container">
+        <div class="header">
+            <div class="header-content">
+                <h1 class="title">La Empatía</h1>
+                <p class="subtitle">El superpoder que todos podemos desarrollar</p>
+                <!-- Enlace en el encabezado -->
+                <a href="https://google.com" style="color: white; background-color: rgba(0,0,0,0.2); padding: 10px 20px; border-radius: 30px; text-decoration: none; display: inline-block; margin-top: 20px; font-weight: bold;">Por Carlos Cisneros</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">¿Qué es la Empatía?</h2>
+                <div class="definition">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2646/2646914.png" alt="Empatía ilustrada" class="definition-image float-animation">
+                    <div class="definition-text">
+                        <p>La empatía es la <span class="highlight">capacidad extraordinaria</span> de comprender y compartir los sentimientos de otra persona. Es como tener un "detector de emociones" que nos permite conectar con los demás de forma genuina, entendiendo sus alegrías, tristezas y preocupaciones como si fueran propias.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Beneficios de la Empatía</h2>
+                <p>Desarrollar la empatía nos ayuda a crecer como personas y mejora nuestra vida de muchas formas:</p>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4226/4226088.png" alt="Amistad" class="benefit-image pulse-animation">
+                        <h3 class="benefit-title">Mejores Amistades</h3>
+                        <p>Crea relaciones más profundas y significativas con tus amigos al entender sus sentimientos.</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2760/2760995.png" alt="Resolución de conflictos" class="benefit-image pulse-animation">
+                        <h3 class="benefit-title">Menos Conflictos</h3>
+                        <p>Resuelve problemas de forma pacífica al comprender diferentes puntos de vista.</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2422/2422246.png" alt="Inteligencia emocional" class="benefit-image pulse-animation">
+                        <h3 class="benefit-title">Inteligencia Emocional</h3>
+                        <p>Mejora tu capacidad para reconocer y manejar tus propias emociones.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Cómo Practicar la Empatía</h2>
+                <p>¡Todos podemos mejorar nuestra empatía con estos sencillos consejos!</p>
+
+                <div class="tips-container">
+                    <div class="tip">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2647/2647533.png" alt="Escucha activa" class="tip-image bounce-animation">
+                        <div class="tip-content">
+                            <h3 class="tip-title">Escucha de Corazón</h3>
+                            <p>Presta toda tu atención cuando alguien te habla. Mira a los ojos, asiente y haz preguntas para mostrar que realmente te importa lo que dice.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2646/2646923.png" alt="Ponte en su lugar" class="tip-image bounce-animation">
+                        <div class="tip-content">
+                            <h3 class="tip-title">Ponte en sus Zapatos</h3>
+                            <p>Antes de juzgar a alguien, pregúntate: "¿Cómo me sentiría yo en su situación?". Imagina cómo es ver el mundo desde su perspectiva.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3588/3588614.png" alt="Valida emociones" class="tip-image bounce-animation">
+                        <div class="tip-content">
+                            <h3 class="tip-title">Respeta los Sentimientos</h3>
+                            <p>Reconoce que los sentimientos de los demás son importantes, aunque sean diferentes a los tuyos. Frases como "entiendo cómo te sientes" pueden ayudar mucho.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2646/2646918.png" alt="Actos de bondad" class="tip-image bounce-animation">
+                        <div class="tip-content">
+                            <h3 class="tip-title">Pequeños Actos de Bondad</h3>
+                            <p>Ayuda a los demás cuando lo necesiten. Un pequeño gesto amable puede iluminar el día de alguien y fortalecer tu capacidad de empatía.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">La Empatía en Acción</h2>
+                <p>Ejemplos de cómo podemos mostrar empatía en diferentes lugares:</p>
+
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3976/3976631.png" alt="Empatía en la escuela" class="example-image float-animation">
+                        <div class="example-content">
+                            <h3 class="example-title">En la Escuela</h3>
+                            <p>Incluir a un compañero nuevo en tu grupo, ayudar a quien tiene dificultades con una materia, o defender a alguien que está siendo molestado.</p>
+                        </div>
+                    </div>
+
+                    <div class="example-card">
+                        <img src="https://cdn-icons-png.flaticon.com/512/7818/7818095.png" alt="Empatía en la familia" class="example-image float-animation">
+                        <div class="example-content">
+                            <h3 class="example-title">En la Familia</h3>
+                            <p>Escuchar a tus padres o hermanos cuando tienen un problema, ofrecer ayuda en casa cuando todos están cansados, o comprender cuando alguien tiene un mal día.</p>
+                        </div>
+                    </div>
+
+                    <div class="example-card">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2058/2058349.png" alt="Empatía en la comunidad" class="example-image float-animation">
+                        <div class="example-content">
+                            <h3 class="example-title">En la Comunidad</h3>
+                            <p>Ayudar a personas mayores, participar en actividades de voluntariado, o simplemente sonreír y ser amable con las personas que encuentras en tu día a día.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quotes-section">
+                <img src="https://cdn-icons-png.flaticon.com/512/3163/3163785.png" alt="Citas inspiradoras" class="quotes-image pulse-animation">
+                <p class="quote">"La empatía es ver con los ojos de otro, escuchar con los oídos de otro y sentir con el corazón de otro."</p>
+                <p class="quote">"Un pequeño acto de empatía puede cambiar el día de alguien... ¡o incluso su vida!"</p>
+                <!-- Enlace en la sección de citas -->
+                <a href="https://google.com" style="color: white; background-color: rgba(0,0,0,0.2); padding: 10px 20px; border-radius: 30px; text-decoration: none; display: inline-block; margin-top: 20px; font-weight: bold;">Carlos Cisneros</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <img src="https://cdn-icons-png.flaticon.com/512/2646/2646944.png" alt="Llamado a la acción" class="footer-image bounce-animation">
+            <h2 class="call-to-action">¡Comienza Hoy!</h2>
+            <p class="footer-text">La empatía es como un músculo: cuanto más la practicas, más fuerte se vuelve. Cada pequeño acto de comprensión y conexión contribuye a crear un mundo más amable. ¡El cambio comienza contigo!</p>
+            <!-- Enlace en el footer -->
+            <a href="https://google.com" class="author-link">Presentado por Carlos Cisneros</a>
+        </div>
+    </div>
+</body>
+</html>
